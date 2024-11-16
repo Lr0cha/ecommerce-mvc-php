@@ -21,7 +21,7 @@ class Product extends Database {
         $query = "SELECT * FROM " . $this->table;
         $stmt = $this->pdo->prepare($query);
         $stmt->execute();
-        return $stmt;
+        return $stmt->fetchAll(PDO::FETCH_ASSOC); // array associativo
     }
 
     public function getProductsByCategory($category) {

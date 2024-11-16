@@ -7,6 +7,9 @@
     <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+    <?php
+        include('header.php');
+    ?>
     <h1>Catálogo de Produtos</h1>
     <div class="container">
         <?php foreach ($products as $product): ?>

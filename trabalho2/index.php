@@ -20,6 +20,11 @@ switch ($action) {
         $controller = new ProductController();
         $controller->showCatalog($_GET['section']);
         break;
+    
+    case 'list':
+        $controller = new ProductController();
+        $controller->listAll();
+        break;
 
     case 'login':
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {

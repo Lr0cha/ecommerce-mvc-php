@@ -19,6 +19,11 @@ include('header.php');
             <li class="nav-item"><a href="index.php?action=catalog&section=luminaires" class="nav-link">Luminárias</a></li>
             <li class="nav-item"><a href="index.php?action=catalog&section=cushion" class="nav-link">Almofadas</a></li>
             <li class="nav-item"><a href="index.php?action=catalog&section=vase" class="nav-link">Vasos</a></li>
+            <?php
+            if(isset($_SESSION['user']) && $_SESSION['user']['name'] == 'Administrador' && $_SESSION['user']['email'] == 'admin@admin.com'){
+                echo '<li class="nav-item"><a href="index.php?action=list" class="nav-link">Listagem</a></li>';
+            }
+            ?>
         </ul>
     </div>
 </nav>

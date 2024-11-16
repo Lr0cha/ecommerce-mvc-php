@@ -15,7 +15,7 @@ class ProductController {
 
     public function listAll() {
         $products = $this->model->getAllProducts();
-        include './views/listagem.php';
+        include './views/list.php';
     }
 }
 ?>

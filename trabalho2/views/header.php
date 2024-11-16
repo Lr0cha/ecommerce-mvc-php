@@ -1,8 +1,7 @@
 <header class="bg-dark text-white p-3">
     <div class="container d-flex justify-content-between align-items-center">
         <div class="logo">
-            <img id="img_logo" src="./assets/img/decoracaoLogo.png" alt="Logo Decora Fácil" style="max-height: 50px;">
-            <a id="logo" class="text-white fs-3 ms-2">Decora Fácil</a>
+            <a href="index.php?action=home"><img id="img_logo" src="./assets/img/decoracaoLogo.png" alt="Logo Decora Fácil" style="max-height: 50px;"></a>
         </div>
         <div class="search d-flex">
             <input type="text" class="form-control me-2" placeholder="Pesquisar decoração...">
