@@ -18,12 +18,26 @@ switch ($action) {
     
     case 'catalog':
         $controller = new ProductController();
-        $controller->showCatalog($_GET['section']);
+        if($_GET['section']){
+            $controller->showCatalog($_GET['section']);
+        }else{
+            include('views/catalog.php');
+        }
         break;
     
     case 'list':
         $controller = new ProductController();
         $controller->listAll();
+        break;
+    
+    case 'cart':
+        $controller = new SaleController();
+        if($_GET['function'] == 'addToCart'){
+            $controller->addToCart();
+        }
+        else{
+            $controller->showCart();
+        }
         break;
 
     case 'login':

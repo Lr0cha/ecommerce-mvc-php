@@ -19,6 +19,11 @@
                     <h3><?php echo $product['description']; ?></h3>
                     <p>Preço: R$ <?php echo number_format($product['price'], 2, ',', '.'); ?></p>
                     <p>Estoque: <?php echo $product['stock_quantity']; ?></p>
+                    <form action="index.php?action=cart&function=addToCart" method="POST">
+                        <input type="hidden" name="product_id" value="<?php echo $product['id']; ?>">
+                        <input type="number" name="quantity" value="1" min="1" max="<?php echo $product['stock_quantity']; ?>" required>
+                        <button type="submit" class="btn btn-primary">Adicionar ao Carrinho</button>
+                    </form>
                 </div>
             </div>
         <?php endforeach; ?>
