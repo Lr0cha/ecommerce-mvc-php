@@ -37,10 +37,10 @@
 <nav class="bg-light py-2">
     <div class="container">
         <ul class="nav justify-content-center">
-            <li class="nav-item"><a href="#" class="nav-link active">Quadros</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">Luminárias</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">Almofadas</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">Vasos</a></li>
+            <li class="nav-item"><a href="index.php?action=catalog&section=frame" class="nav-link active">Cortinas</a></li>
+            <li class="nav-item"><a href="index.php?action=catalog&section=luminaires" class="nav-link">Luminárias</a></li>
+            <li class="nav-item"><a href="index.php?action=catalog&section=cushion" class="nav-link">Almofadas</a></li>
+            <li class="nav-item"><a href="index.php?action=catalog&section=vase" class="nav-link">Vasos</a></li>
         </ul>
     </div>
 </nav>

@@ -15,7 +15,12 @@ switch ($action) {
     case 'home':
         include('views/home.php');
         break;
-        
+    
+    case 'catalog':
+        $controller = new ProductController();
+        $controller->showCatalog($_GET['section']);
+        break;
+
     case 'login':
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $authController = new AuthController();
