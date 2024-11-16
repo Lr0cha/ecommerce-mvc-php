@@ -6,7 +6,7 @@
     <title>Catálogo</title>
     <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
     <?php
         include('header.php');
     ?>
@@ -33,4 +33,7 @@
             <?php endforeach; ?>
         </tbody>
     </table>
+    <?php
+        include('footer.php');
+    ?>
 </body>
