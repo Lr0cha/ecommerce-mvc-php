@@ -60,7 +60,12 @@ switch ($action) {
             include('views/register.php');
         }
         break;
-
+    
+    case 'checkout':
+        $controller = new SaleController();
+        $controller->checkout();
+        break;
+        
     case 'logout':
         session_destroy();
         header('Location: index.php?action=home');

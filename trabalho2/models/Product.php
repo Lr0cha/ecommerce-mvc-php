@@ -30,5 +30,11 @@ class Product extends Database {
         $stmt->execute([$category]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC); // array associativo
     }
+
+    public function getProductDetails($productId) {
+        $stmt = $this->pdo->prepare("SELECT * FROM products WHERE id = ?");
+        $stmt->execute([$productId]);
+        return $stmt->fetch();
+    }
 }
 ?>

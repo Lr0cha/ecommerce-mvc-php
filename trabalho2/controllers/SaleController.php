@@ -39,8 +39,47 @@ class SaleController {
     }
 
     public function checkout() {
-        // Finalizar a compra, criando venda e itens
+        // Verifica se o carrinho está vazio
+        if (empty($_SESSION['cart'])) {
+            header('Location: index.php?action=cart&function=showCart');
+            exit;
+        }
+    
+        // Usuário que está logado
+        $userId = $_SESSION['user']['id'];
+    
+        $total = 0;
+        $productModel = new Product(); // Instância para buscar os detalhes do produto no BD
+    
+        foreach ($_SESSION['cart'] as $productId => $product) {
+            $productDetails = $productModel->getProductDetails($productId); //info dos prod do carrinho
+            $price = $productDetails['price'];
+            $total += $price * $product['quantity']; // total da compra do carrinho
+        }
+    
+        // antes de mandar p/ BD confirma as informações
         include './views/checkout.php';
-    }
+    
+        // usuário confirmou a compra?
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirm_checkout'])) {
+            $sale = new Sale($userId, $total);
+            $saleId = $sale->createSale(); // Cria a venda na tabela sales
+    
+            // Adiciona os itens do carrinho à tabela sale_items
+            foreach ($_SESSION['cart'] as $productId => $product) {
+                $productDetails = $productModel->getProductDetails($productId);
+                $price = $productDetails['price'];
+                $saleItem = new SaleItem($saleId, $productId, $product['quantity'], $price);
+                $saleItem->addItemToSale(); // Insere o item na tabela sale_items
+            }
+    
+            // Limpa o carrinho após a compra
+            unset($_SESSION['cart']);
+            
+            // Redireciona para home
+            header('Location: index.php?action=home');
+            exit;
+        }
+    }     
 }
 ?>
