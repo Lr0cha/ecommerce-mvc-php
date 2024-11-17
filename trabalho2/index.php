@@ -33,7 +33,7 @@ switch ($action) {
     case 'cart':
         $controller = new SaleController();
         if($_GET['function'] == 'addToCart'){
-            $controller->addToCart();
+            $controller->addToCart($_GET['description']);
         }
         else if($_GET['function'] == 'showCart'){
             $controller->showCart();

@@ -8,18 +8,23 @@ class SaleController {
         include './views/cart.php';
     }
 
-    public function addToCart() {
+    public function addToCart($nameProd) {
         $productId = $_POST['product_id'];
         $quantity = $_POST['quantity'];
+        // o prod já está no carrinho?
         if (!isset($_SESSION['cart'][$productId])) {
-            $_SESSION['cart'][$productId] = 0;
+            // Se não estiver, cria
+            $_SESSION['cart'][$productId] = [
+                'quantity' => 0,
+                'name' => $nameProd
+            ];
         }
-
-        $_SESSION['cart'][$productId] += $quantity;
-
+    
+        $_SESSION['cart'][$productId]['quantity'] += $quantity; //add qtd
+        
         header('Location: index.php?action=home');
         exit;
-    }
+    }    
 
     public function removeItemCart($id) {
         if (isset($_SESSION['cart'])) {

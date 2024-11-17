@@ -17,14 +17,15 @@
 
         <?php if (!empty($_SESSION['cart'])): ?>
             <div class="list-group">
-                <?php foreach ($_SESSION['cart'] as $productId => $quantity): ?>
+                <?php foreach ($_SESSION['cart'] as $productId => $details): ?>
                     <div class="list-group-item d-flex justify-content-between align-items-center">
-                        Produto ID: <?php echo $productId; ?>, 
-                        Quantidade: <?php echo $quantity; ?>
+                        Produto: <?php echo $details['name']; ?>, 
+                        Quantidade: <?php echo $details['quantity']; ?>
+                        
                         <form method="POST" action="index.php?action=cart&id=<?php echo $productId; ?>&function=removeItemCart">
-                        <button type="submit" class="btn btn-danger btn-sm">
-                            <i class="fas fa-trash-alt"></i> Remover
-                        </button>
+                            <button type="submit" class="btn btn-danger btn-sm">
+                                <i class="fas fa-trash-alt"></i> Remover
+                            </button>
                         </form>
                     </div>
                 <?php endforeach; ?>
@@ -37,7 +38,7 @@
                     </button>
                 </form>
                 <a href="index.php?action=home" class="btn btn-secondary">
-                    <i class="fas fa-arrow-left"></i> Voltar a tela principal
+                    <i class="fas fa-arrow-left"></i> Voltar à tela principal
                 </a>
             </div>
 
