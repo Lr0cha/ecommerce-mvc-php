@@ -22,7 +22,7 @@ class SaleController {
     
         $_SESSION['cart'][$productId]['quantity'] += $quantity; //add qtd
         
-        header('Location: index.php?action=home');
+        header('Location: index.php?action=catalog&section='.$_GET['category']);
         exit;
     }    
 

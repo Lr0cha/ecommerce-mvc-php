@@ -28,7 +28,7 @@
                                 Preço: R$ <?php echo number_format($product['price'], 2, ',', '.'); ?>
                             </p>
                             <p class="card-text text-muted">Estoque: <?php echo $product['stock_quantity']; ?> unidades</p>
-                            <form action="index.php?action=cart&function=addToCart&description=<?php echo urlencode($product['description']); ?>" method="POST">
+                            <form action="index.php?action=cart&function=addToCart&description=<?php echo urlencode($product['description']); ?>&category=<?php echo urlencode($product['category']); ?>" method="POST">
                                 <input type="hidden" name="product_id" value="<?php echo $product['id']; ?>">
                                 <div class="d-flex align-items-center">
                                     <input type="number" name="quantity" value="1" min="1" max="<?php echo $product['stock_quantity']; ?>" class="form-control me-2" required>
