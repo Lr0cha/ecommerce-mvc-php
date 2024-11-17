@@ -21,9 +21,11 @@
                     <div class="list-group-item d-flex justify-content-between align-items-center">
                         Produto ID: <?php echo $productId; ?>, 
                         Quantidade: <?php echo $quantity; ?>
-                        <button class="btn btn-danger btn-sm">
+                        <form method="POST" action="index.php?action=cart&id=<?php echo $productId; ?>&function=removeItemCart">
+                        <button type="submit" class="btn btn-danger btn-sm">
                             <i class="fas fa-trash-alt"></i> Remover
                         </button>
+                        </form>
                     </div>
                 <?php endforeach; ?>
             </div>

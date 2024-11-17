@@ -35,8 +35,11 @@ switch ($action) {
         if($_GET['function'] == 'addToCart'){
             $controller->addToCart();
         }
-        else{
+        else if($_GET['function'] == 'showCart'){
             $controller->showCart();
+        }
+        else{
+            $controller->removeItemCart($_GET['id']);
         }
         break;
 

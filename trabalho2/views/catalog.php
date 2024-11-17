@@ -21,7 +21,7 @@
             <?php foreach ($products as $product): ?>
                 <div class="col">
                     <div class="card shadow-sm h-100">
-                        <img src="./assets/img/<?php echo $product['image']; ?>" alt="<?php echo $product['description']; ?>" class="card-img-top img-fluid">
+                        <img src="./assets/img/<?php echo $product['category']."/". $product['image']; ?>" alt="<?php echo $product['description']; ?>" class="card-img-top img-fluid">
                         <div class="card-body">
                             <h5 class="card-title"><?php echo $product['description']; ?></h5>
                             <p class="card-text text-success">

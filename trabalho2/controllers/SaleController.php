@@ -11,7 +11,6 @@ class SaleController {
     public function addToCart() {
         $productId = $_POST['product_id'];
         $quantity = $_POST['quantity'];
-
         if (!isset($_SESSION['cart'][$productId])) {
             $_SESSION['cart'][$productId] = 0;
         }
@@ -20,6 +19,18 @@ class SaleController {
 
         header('Location: index.php?action=home');
         exit;
+    }
+
+    public function removeItemCart($id) {
+        if (isset($_SESSION['cart'])) {
+            // produto existe no carrinho?
+            if (isset($_SESSION['cart'][$id])) {
+                // Remove do carrinho
+                unset($_SESSION['cart'][$id]);
+            }
+        }
+        header('Location: index.php?action=cart&function=showCart');
+        exit();
     }
 
     public function checkout() {
