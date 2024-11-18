@@ -18,6 +18,7 @@ include('header.php');
             <li class="nav-item"><a href="index.php?action=catalog&section=curtains" class="nav-link active">Cortinas</a></li>
             <li class="nav-item"><a href="index.php?action=catalog&section=luminaires" class="nav-link">Luminárias</a></li>
             <li class="nav-item"><a href="index.php?action=catalog&section=vase" class="nav-link">Vasos</a></li>
+            <li class="nav-item"><a href="index.php?action=catalog&section=frame" class="nav-link">Quadros</a></li>
             <?php
             if(isset($_SESSION['user']) && $_SESSION['user']['name'] == 'Administrador' && $_SESSION['user']['email'] == 'admin@admin.com'){
                 echo '<li class="nav-item"><a href="index.php?action=list" class="nav-link">Listagem</a></li>';

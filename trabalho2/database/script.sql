@@ -59,3 +59,10 @@ INSERT INTO products (code, description, unit, stock_quantity, price, category, 
 ('P12810', 'Vaso de cerâmica marrom', 'unidade', 120, 55.00, 'vase', 'jarroCeramicaMarrom.jpg'),
 ('P12915', 'Vaso pequeno de vidro', 'unidade', 200, 39.99, 'vase', 'vasoVidro.jpg'),
 ('P19135', 'Jarro minimalista de vidro', 'unidade', 20, 19.99, 'vase', 'jarroVidro.jpg');
+
+INSERT INTO products (code, description, unit, stock_quantity, price, category, image) VALUES
+('P42345', 'Quadro 40 x 60 cm Abacaxi', 'unidade', 15, 44.99, 'frame', 'frame2.jpg'),
+('P42735', 'Quadro 90 x 120 cm', 'unidade', 50, 59.99, 'frame', 'frame1.jpg'),
+('P42810', 'Moldura 40 x 30 cm', 'unidade', 120, 33.99, 'frame', 'frame3.jpg'),
+('P42915', 'Moldura 30 x 40 cm', 'unidade', 92, 31.99, 'frame', 'frame4.jpg'),
+('P49135', 'Quadro 40 x 60 cm', 'unidade', 200, 39.99, 'frame', 'frame5.jpg');
