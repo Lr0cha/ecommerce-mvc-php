@@ -31,6 +31,13 @@ class Product extends Database {
         return $stmt->fetchAll(PDO::FETCH_ASSOC); // array associativo
     }
 
+    public function searchProducts($query) {
+        $sql = "SELECT * FROM products WHERE description LIKE :query LIMIT 5"; // Limitando as sugestões
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute(['query' => '%'.$query.'%']);
+        return $stmt->fetchAll(); // retorna as que tem os caracteres da busca
+    }
+
     public function getProductDetails($productId) {
         $stmt = $this->pdo->prepare("SELECT * FROM products WHERE id = ?");
         $stmt->execute([$productId]);

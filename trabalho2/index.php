@@ -16,6 +16,11 @@ switch ($action) {
         include('views/home.php');
         break;
     
+    case 'search':
+        $controller = new ProductController();
+        $controller->searchAction($_GET['query']);  // Nova ação de busca
+        break;
+        
     case 'catalog':
         $controller = new ProductController();
         if($_GET['section']){
