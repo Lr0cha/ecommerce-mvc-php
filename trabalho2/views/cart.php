@@ -32,7 +32,7 @@
             </div>
 
             <div class="d-flex justify-content-between mt-4">
-                <form action="index.php?action=checkout" method="POST">
+                <form action="index.php?action=checkout&function=viewPageCheckout" method="POST">
                     <button type="submit" class="btn btn-success">
                         <i class="fas fa-check-circle"></i> Finalizar Compra
                     </button>

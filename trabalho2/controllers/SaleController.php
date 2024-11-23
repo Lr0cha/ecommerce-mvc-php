@@ -38,48 +38,37 @@ class SaleController {
         exit();
     }
 
-    public function checkout() {
-        // Verifica se o carrinho está vazio
-        if (empty($_SESSION['cart'])) {
-            header('Location: index.php?action=cart&function=showCart');
-            exit;
-        }
-    
-        // Usuário que está logado
-        $userId = $_SESSION['user']['id'];
-    
-        $total = 0;
-        $productModel = new Product(); // Instância para buscar os detalhes do produto no BD
-    
+    public function checkout(){   
+        $userId = $_SESSION['user']['id']; //id usuario atual   
+        $productModel = new Product(); //instanciar model do produto
+        $total = $_SESSION['total'];
+        unset($_SESSION['total']); // destruir dps de utilizada
+
+        if (isset($_POST['text_address'])) {
+            $address = $_POST['text_address']; // novo endereço se selecionado
+        }else{
+            $address = $_POST['address_type']; // endereço do cadastro
+        } 
+        $numberAddress = $_POST['number']; // número residência
+
+        // Criação da venda
+        $sale = new Sale($userId, $total, $address, $numberAddress);
+        $saleId = $sale->createSale();
+
+        // Adiciona os itens do carrinho à tabela sale_items
         foreach ($_SESSION['cart'] as $productId => $product) {
-            $productDetails = $productModel->getProductDetails($productId); //info dos prod do carrinho
+            $productDetails = $productModel->getProductDetails($productId);
             $price = $productDetails['price'];
-            $total += $price * $product['quantity']; // total da compra do carrinho
+            $saleItem = new SaleItem($saleId, $productId, $product['quantity'], $price);
+            $saleItem->addItemToSale();
+            $productModel->withdrawItem($productId,$product['quantity']); // retirar item que foram vendidos
         }
-    
-        // antes de mandar p/ BD confirma as informações
-        include './views/checkout.php';
-    
-        // usuário confirmou a compra?
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirm_checkout'])) {
-            $sale = new Sale($userId, $total);
-            $saleId = $sale->createSale(); // Cria a venda na tabela sales
-    
-            // Adiciona os itens do carrinho à tabela sale_items
-            foreach ($_SESSION['cart'] as $productId => $product) {
-                $productDetails = $productModel->getProductDetails($productId);
-                $price = $productDetails['price'];
-                $saleItem = new SaleItem($saleId, $productId, $product['quantity'], $price);
-                $saleItem->addItemToSale(); // Insere o item na tabela sale_items
-            }
-    
-            // Limpa o carrinho após a compra
-            unset($_SESSION['cart']);
-            
-            // Redireciona para home
-            header('Location: index.php?action=home');
-            exit;
-        }
-    }     
+
+        // Limpa o carrinho após a compra
+        unset($_SESSION['cart']);
+
+        header('Location: index.php?action=home');
+        exit;
+    }
 }
 ?>

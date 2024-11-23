@@ -43,5 +43,15 @@ class Product extends Database {
         $stmt->execute([$productId]);
         return $stmt->fetch();
     }
+
+    public function withdrawItem($id,$quantitySold){
+        $stmt = $this->pdo->prepare("SELECT stock_quantity FROM products WHERE id = ?");
+        $stmt->execute([$id]);
+        $currentQuantity = $stmt->fetchColumn();
+        $newQuantity = $currentQuantity - $quantitySold;
+
+        $stmt = $this->pdo->prepare("UPDATE products SET stock_quantity = ? WHERE id = ?");
+        $stmt->execute([$newQuantity, $id]);
+    }
 }
 ?>

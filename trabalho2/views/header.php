@@ -1,17 +1,19 @@
 <header class="bg-dark text-white p-3">
     <div class="container d-flex justify-content-between align-items-center">
         <div class="logo">
-            <a href="index.php?action=home"><img id="img_logo" src="./assets/img/decoracaoLogo.png" alt="Logo Decora Fácil" style="max-height: 50px;"></a>
+            <a href="index.php?action=home">
+                <img id="img_logo" src="./assets/img/decoracaoLogo.png" alt="Logo Decora Fácil" style="max-height: 50px;">
+            </a>
         </div>
-        <div class="search d-flex position-relative"> 
-            <input type="text" id="search-input" class="form-control me-2" placeholder="Pesquisar decoração...">
-            <!-- sugestões de pesquisa -->
-            <div id="search-suggestions" class="position-absolute bg-white shadow rounded w-100 mt-5 text-dark" style="display:none;"></div>
+        <div class="search d-flex position-relative mx-3" style="flex-grow: 0.5;">
+            <input type="text" id="search-input" class="form-control" placeholder="Pesquisar decoração..." aria-label="Pesquisar decoração">
+            <!-- Sugestões de pesquisa -->
+            <div id="search-suggestions" class="position-absolute bg-white shadow rounded w-100 mt-5 text-dark" style="display:none; cursor: pointer;"></div>
         </div>
         <div class="login">
             <?php
-            if (isset($_SESSION['user'])) { // variável está declarada e <> de null
-                $numProdCart = isset($_SESSION['cart']) ? count($_SESSION['cart']) : 0; //quantidade de prod. no carrinho            
+            if (isset($_SESSION['user'])) {
+                $numProdCart = isset($_SESSION['cart']) ? count($_SESSION['cart']) : 0;            
                 $nomes = explode(' ', $_SESSION['user']['name']);
                 echo "<span class='text-white'>Olá, " . htmlspecialchars($nomes[0]) . "</span>";
                 echo "<a href='index.php?action=logout' class='text-white ms-3'>Sair</a>";

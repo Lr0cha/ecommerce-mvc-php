@@ -67,8 +67,13 @@ switch ($action) {
         break;
     
     case 'checkout':
-        $controller = new SaleController();
-        $controller->checkout();
+        if(isset($_GET['function'])){
+            include('views/checkout.php');
+        } 
+        else{
+            $controller = new SaleController();
+            $controller->checkout();
+        }
         break;
         
     case 'logout':
