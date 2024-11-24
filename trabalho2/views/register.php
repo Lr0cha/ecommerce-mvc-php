@@ -12,7 +12,7 @@
 <div class="container">
     <div class="client-register">
         <h1 class="title-forms">Cadastro de usuário</h1>
-        <form method="POST" action="index.php?action=register">
+        <form id="registerForm" method="POST" action="index.php?action=register">
             <div class="form-register">
                 <div class="text-field">
                     <label for="text_name">Nome*</label>
@@ -21,30 +21,36 @@
                 <div class="text-field">
                     <label for="text_email">E-mail*</label>
                     <input type="email" id="text_email" name="email" required>
+                    <span class="error-message" id="error_email"></span>
                 </div>
                 <div class="text-field">
                     <label for="text_cpf">CPF*</label>
-                    <input type="text" id="text_cpf" name="cpf" required>
+                    <input type="text" id="text_cpf" name="cpf" oninput="cpfMask(this)" maxlength="11" onblur="cpfMask(this)" required>
+                    <span class="error-message" id="error_cpf"></span>
                 </div>
                 <div class="text-field">
                     <label for="text_password">Senha*</label>
-                    <input type="password" id="text_password" name="password" required>
+                    <input type="password" id="text_password" name="password" minlength="6" required>
+                    <span class="error-message" id="error_password"></span>
                 </div>
                 <div class="text-field">
-                    <label for="text_phone">Telefone*</label>
-                    <input type="text" id="text_phone" name="phone" required>
+                    <label for="text_phone">Celular*</label>
+                    <input type="tel" id="text_phone" name="phone" onkeyup="handlePhone(event)" maxlength="15" required>
+                    <span class="error-message" id="error_phone"></span>
                 </div>
                 <div class="text-field">
                     <label for="text_birthday">Nascimento*</label>
                     <input type="date" id="text_birthday" name="birth" required>
+                    <span class="error-message" id="error_birthday"></span>
                 </div>
                 <div class="text-field">
                     <label for="text_cep">CEP*</label>
                     <input type="text" id="text_cep" name="cep" maxlength="9" onblur="checkCep()" required>
+                    <span class="error-message" id="error_cep"></span>
                 </div>
                 <div class="text-field">
                     <label for="text_address">Endereço*</label>
-                    <input type="text" id="text_address" name="address" required>
+                    <input type="text" id="text_address" name="address" required readonly>
                 </div>
                 <div class="btn-forms">
                     <input type="submit" value="Cadastrar">
@@ -54,7 +60,7 @@
                 <a href="index.php?action=login">Já tem uma conta? Entre aqui</a>
             </div>
         </form>
-
+        
         <?php
             if (isset($_SESSION['error_message'])) {
                 echo "<script type='text/javascript'>

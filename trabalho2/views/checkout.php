@@ -56,7 +56,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="text_address">Endereço</label>
-                                <input type="text" class="form-control" id="text_address" name="text_address">
+                                <input type="text" class="form-control" id="text_address" name="text_address" readonly>
                             </div>
                             <input type="hidden" name="address_type" value="<?php echo $_SESSION['user']['address']?>"> <!-- Default para "endereço de cadastro" -->
                         </div>

@@ -315,3 +315,10 @@ form {
     color: #295a8a;
     text-decoration: underline;
 }
+
+.error-message{
+    color: red;
+    font-size: 12px;
+    display: none;
+    margin-top: 5px;
+}
