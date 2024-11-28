@@ -29,6 +29,10 @@
         </div>
     </div>
 </header>
+<div class="position-fixed bottom-0 end-0 p-3">
+    <a href="#"><img src="./assets/img/whatsapp.png" width="60px" alt="WhatsApp"></a>
+</div>
+
 
 <!-- jQuery p/ manipulação AJAX -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
