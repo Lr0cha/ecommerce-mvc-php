@@ -44,7 +44,7 @@ class SaleController {
         $total = $_SESSION['total'];
         unset($_SESSION['total']); // destruir dps de utilizada
 
-        if (isset($_POST['text_address'])) {
+        if (isset($_POST['text_address']) && $_POST['text_address'] !== '') {
             $address = $_POST['text_address']; // novo endereço se selecionado
         }else{
             $address = $_POST['address_type']; // endereço do cadastro
