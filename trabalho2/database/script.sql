@@ -1,3 +1,6 @@
+CREATE DATABASE ecommerce;
+USE ecommerce;
+
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
@@ -25,6 +28,8 @@ CREATE TABLE sales (
     user_id INT NOT NULL,
     sale_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     total DECIMAL(10, 2) NOT NULL,
+    delivery_address TEXT,
+    number_address INT NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
