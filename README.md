@@ -2,6 +2,10 @@
 
 Este é um protótipo de site de venda online de decorações (nome fictício: Decora Fácil), desenvolvido para apresentação na aula de Programação em Scripts da Fatec. O projeto utilizou os aprendizados adquiridos em projetos anteriores ([php-login-mvc-system](https://github.com/Lr0cha/php-login-mvc-system)) e novos conhecimentos adquiridos durante as aulas e estudos extra-classe. Foi adotado o padrão **MVC (Model-View-Controller)**, com foco em boas práticas de segurança, como **hashing de senhas**, **PDO (PHP Data Objects)** para interações com o banco de dados, **validação de entradas** e muito mais.
 
+<a href="https://youtu.be/81at4QJ3fHc" target="_blank">
+    <button>Vídeo de apresentação do site</button>
+</a>
+
 ## **Tecnologias Utilizadas**
 
 - **PHP**: Linguagem de programação utilizada para o desenvolvimento do sistema.
@@ -20,6 +24,11 @@ Este é um protótipo de site de venda online de decorações (nome fictício: D
 - **Página de Confirmação**: Exibe os dados do pedido e permite a confirmação do endereço de entrega para finalizar a compra.
 - **Busca por Categoria**: Barra de pesquisa com AJAX para interação rápida com os tipos de produtos.
 - **Logout**: Permite que o usuário saia da sua sessão.
+
+## Modelagem de Dados
+<p align="center">
+  <img src="trabalho2/assets/img/modelagemLogica.png" alt="Modelagem lógica">
+</p>
 
 ## **Estrutura do Projeto**
 
